@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imc/blocs/imc_bloc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -8,6 +9,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  ImcBloc bloc = ImcBloc();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,25 +22,25 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(20),
             child: TextFormField(
-              decoration: const InputDecoration(
-                labelText: "Altura (cm)",
-              ),
+              decoration: const InputDecoration(labelText: "Altura (cm)"),
+              controller: bloc.heightController,
+              inputFormatters: [bloc.heightMaskTextInputFormatter],
               keyboardType: TextInputType.number,
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(20),
             child: TextFormField(
-              decoration: const InputDecoration(
-                labelText: "Peso (kg)",
-              ),
+              decoration: const InputDecoration(labelText: "Peso (kg)"),
+              controller: bloc.weightController,
+              inputFormatters: [bloc.weightMaskTextInputFormatter],
               keyboardType: TextInputType.number,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(20),
+          Padding(
+            padding: const EdgeInsets.all(20),
             child: Text(
-              "Você está fora em forma!",
+              bloc.result,
               textAlign: TextAlign.center,
             ),
           ),
@@ -47,13 +50,17 @@ class _HomePageState extends State<HomePage> {
               style: TextButton.styleFrom(
                 backgroundColor: Theme.of(context).primaryColor,
               ),
-              onPressed: () {},
               child: const Text(
                 "Calcular",
                 style: TextStyle(
                   color: Colors.white,
                 ),
               ),
+              onPressed: () {
+                setState(() {
+                  bloc.calculate();
+                });
+              },
             ),
           ),
         ],

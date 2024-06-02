@@ -1,14 +1,17 @@
 
+import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class ImcBloc {
-  MaskTextInputFormatter heightController = MaskTextInputFormatter(mask: '###');
-  MaskTextInputFormatter weightController = MaskTextInputFormatter(mask: '###');
+  MaskTextInputFormatter heightMaskTextInputFormatter = MaskTextInputFormatter(mask: '###');
+  MaskTextInputFormatter weightMaskTextInputFormatter = MaskTextInputFormatter(mask: '###');
+  TextEditingController heightController = TextEditingController();
+  TextEditingController weightController = TextEditingController();
   String result = "Preencha os campos para calcular o IMC";
 
   void calculate() {
-    double weight = double.parse(weightController.getMaskedText());
-    double height = double.parse(heightController.getMaskedText()) / 100;
+    double weight = double.parse(weightController.text);
+    double height = double.parse(heightController.text) / 100;
     double imc = weight / (height * height);
 
     if (imc < 18.6) {

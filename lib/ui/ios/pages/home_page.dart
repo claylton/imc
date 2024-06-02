@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:imc/blocs/imc_bloc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,6 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  ImcBloc bloc = ImcBloc();
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -17,24 +20,28 @@ class _HomePageState extends State<HomePage> {
       ),
       child: ListView(
         children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.all(20),
+          Padding(
+            padding: const EdgeInsets.all(20),
             child: CupertinoTextField(
               placeholder: 'Altura (cm)',
+              controller: bloc.heightController,
+              inputFormatters: [bloc.heightMaskTextInputFormatter],
               keyboardType: TextInputType.number,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(20),
+          Padding(
+            padding: const EdgeInsets.all(20),
             child: CupertinoTextField(
               placeholder: 'Peso (kg)',
+              controller: bloc.weightController,
+              inputFormatters: [bloc.weightMaskTextInputFormatter],
               keyboardType: TextInputType.number,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(20),
+          Padding(
+            padding: const EdgeInsets.all(20),
             child: Text(
-              'Você está fora de forma',
+              bloc.result,
               textAlign: TextAlign.center,
             ),
           ),
@@ -42,7 +49,11 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(20),
             child: CupertinoButton.filled(
               child: const Text('Calcular'),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  bloc.calculate();
+                });
+              },
             ),
           ),
         ],
