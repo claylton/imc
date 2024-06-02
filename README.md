@@ -8,9 +8,9 @@
 
 <div align="center">
   
- ![GitHub repo size](https://img.shields.io/github/repo-size/claylton/ethanol_or_gasoline)
- ![GitHub](https://img.shields.io/github/license/claylton/ethanol_or_gasoline)
- ![GitHub last commit](https://img.shields.io/github/last-commit/claylton/ethanol_or_gasoline)
+ ![GitHub repo size](https://img.shields.io/github/repo-size/claylton/imc)
+ ![GitHub](https://img.shields.io/github/license/claylton/imc)
+ ![GitHub last commit](https://img.shields.io/github/last-commit/claylton/imc)
 
 </div>
 
