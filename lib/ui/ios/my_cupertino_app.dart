@@ -12,6 +12,9 @@ class MyCupertinoApp extends StatelessWidget {
        return const CupertinoApp(
          title: 'IMC',
          debugShowCheckedModeBanner: false,
+         theme: CupertinoThemeData(
+           primaryColor: Color(0xFF795548),
+         ),
          home: HomePage(),
        );
   }
