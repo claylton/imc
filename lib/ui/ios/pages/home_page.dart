@@ -27,7 +27,6 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.all(20),
                   child: CupertinoTextField(
                     placeholder: 'Altura (cm)',
-                    controller: bloc.heightController,
                     inputFormatters: [bloc.heightMaskTextInputFormatter],
                     keyboardType: TextInputType.number,
                   ),
@@ -36,7 +35,6 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.all(20),
                   child: CupertinoTextField(
                     placeholder: 'Peso (kg)',
-                    controller: bloc.weightController,
                     inputFormatters: [bloc.weightMaskTextInputFormatter],
                     keyboardType: TextInputType.number,
                   ),

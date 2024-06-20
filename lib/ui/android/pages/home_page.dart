@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.all(20),
                   child: TextFormField(
                     decoration: const InputDecoration(labelText: "Altura (cm)"),
-                    controller: bloc.heightController,
+                    // controller: bloc.heightController,
                     inputFormatters: [bloc.heightMaskTextInputFormatter],
                     keyboardType: TextInputType.number,
                   ),
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.all(20),
                   child: TextFormField(
                     decoration: const InputDecoration(labelText: "Peso (kg)"),
-                    controller: bloc.weightController,
+                    // controller: bloc.weightController,
                     inputFormatters: [bloc.weightMaskTextInputFormatter],
                     keyboardType: TextInputType.number,
                   ),
