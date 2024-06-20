@@ -17,50 +17,60 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Cálculo de IMC'),
       ),
-      body: ListView(
+      body: Column(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: TextFormField(
-              decoration: const InputDecoration(labelText: "Altura (cm)"),
-              controller: bloc.heightController,
-              inputFormatters: [bloc.heightMaskTextInputFormatter],
-              keyboardType: TextInputType.number,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: TextFormField(
-              decoration: const InputDecoration(labelText: "Peso (kg)"),
-              controller: bloc.weightController,
-              inputFormatters: [bloc.weightMaskTextInputFormatter],
-              keyboardType: TextInputType.number,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Text(
-              bloc.result,
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: TextButton(
-              style: TextButton.styleFrom(
-                backgroundColor: Theme.of(context).primaryColor,
-              ),
-              child: const Text(
-                "Calcular",
-                style: TextStyle(
-                  color: Colors.white,
+          Expanded(
+            child: ListView(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: TextFormField(
+                    decoration: const InputDecoration(labelText: "Altura (cm)"),
+                    controller: bloc.heightController,
+                    inputFormatters: [bloc.heightMaskTextInputFormatter],
+                    keyboardType: TextInputType.number,
+                  ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: TextFormField(
+                    decoration: const InputDecoration(labelText: "Peso (kg)"),
+                    controller: bloc.weightController,
+                    inputFormatters: [bloc.weightMaskTextInputFormatter],
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Text(
+                    bloc.result,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Theme.of(context).primaryColor,
+                ),
+                child: const Text(
+                  "Calcular",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                onPressed: () {
+                  FocusScope.of(context).unfocus();
+                  setState(() {
+                    bloc.calculate();
+                  });
+                },
               ),
-              onPressed: () {
-                setState(() {
-                  bloc.calculate();
-                });
-              },
             ),
           ),
         ],
