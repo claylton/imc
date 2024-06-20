@@ -11,20 +11,19 @@ class ImcBloc {
     double imc = weight / (height * height);
 
     if (imc < 17) {
-      result = "Muito abaixo do peso (${imc.toStringAsPrecision(4)})";
+      result = "Seu IMC: ${imc.toStringAsPrecision(4)}\n\nResultado: Muito abaixo do peso";
     } else if (imc >= 17 && imc < 18.49) {
-      result = "Abaixo do peso (${imc.toStringAsPrecision(4)})";
+      result = "Seu IMC: ${imc.toStringAsPrecision(4)}\n\nResultado: Abaixo do peso";
     } else if (imc >= 18.50 && imc < 24.99) {
-      result = "Peso ideal (${imc.toStringAsPrecision(4)})";
+      result = "Seu IMC: ${imc.toStringAsPrecision(4)}\n\nResultado: Peso ideal";
     } else if (imc >= 25 && imc < 29.99) {
-      result = "Levemente acima do peso (${imc.toStringAsPrecision(4)})";
+      result = "Seu IMC: ${imc.toStringAsPrecision(4)}\n\nResultado: Levemente acima do peso";
     } else if (imc >= 30 && imc < 34.99) {
-      result = "Obesidade grau I (${imc.toStringAsPrecision(4)})";
+      result = "Seu IMC: ${imc.toStringAsPrecision(4)}\n\nResultado: Obesidade grau I";
     } else if (imc >= 35 && imc < 39.99) {
-      result = "Obesidade grau II (${imc.toStringAsPrecision(4)})";
+      result = "Seu IMC: ${imc.toStringAsPrecision(4)}\n\nResultado: Obesidade grau II";
     } else {
-      result = "Obesidade grau III (${imc.toStringAsPrecision(4)})";
+      result = "Seu IMC: ${imc.toStringAsPrecision(4)}\n\nResultado: Obesidade grau III";
     }
   }
-  
 }
