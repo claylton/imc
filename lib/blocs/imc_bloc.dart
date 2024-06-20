@@ -21,11 +21,11 @@ class ImcBloc {
     } else if (imc >= 24.9 && imc < 29.9) {
       result = "Levemente acima do peso (${imc.toStringAsPrecision(2)})";
     } else if (imc >= 29.9 && imc < 34.9) {
-      result = "Obesidade grau I (${imc.toStringAsPrecision(3)})";
+      result = "Obesidade grau I (${imc.toStringAsPrecision(2)})";
     } else if (imc >= 34.9 && imc < 39.9) {
-      result = "Obesidade grau II (${imc.toStringAsPrecision(3)})";
+      result = "Obesidade grau II (${imc.toStringAsPrecision(2)})";
     } else {
-      result = "Obesidade grau III (${imc.toStringAsPrecision(3)})";
+      result = "Obesidade grau III (${imc.toStringAsPrecision(2)})";
     }
   }
   
